@@ -11,6 +11,7 @@
 
 ## Agenda
 
+- Mindset
 - Enumerables:
     - .each
     - .map/.collect
