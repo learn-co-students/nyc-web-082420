@@ -1,54 +1,37 @@
 require 'pry'
 require_relative './app/models/user'
 
-# Pet CLI App
 animals = [
-    {name: "mojo", species: "cat", speak: 'meow!'},
-    {name: "appa", species: "dog"},
-    {name: "sidney", species: "dog"},
-    {name: "rosie", species: "dog"},
-    {name: "bandit", species: "dog"},
-    {name: "mocha", species: "dog"},
-    {name: "blade", species: "dog"},
-    {name: "luna", species: "cat"},
-    {name: "willow", species: "cat"},
-    {name: "Miss Maybe Knot", species: "cat"},
-    {name: "alister", species: "cat"},
-    {name: "een", species: "cat"},
-    {name: "oon", species: "cat"},
-    {name: "felix", species: "cat"},
-    {name: "pearl", species: "cat"},
-    {name: "savannah", species: "cat"},
+    {species: 'cat', name: 'mojo', noise: 'woof'}, 
+    {species: 'cat', name: 'grady', noise: 'purrrrrr'}, 
+    {species: 'cat', name: 'jerry', noise: 'sneeze'}, 
+    {species: 'nimr', name: 'grady', noise: 'yowl'}, 
+    {species: 'peyton', name: 'grady', noise: 'scream'}, 
+    {species: 'april', name: 'dog', noise: 'woof'}, 
+    {species: 'humphry', name: 'turtle', noise: 'squirt'}, 
+    {species: 'cat', name: 'rick', noise: 'quack'}
 ]
 
-def animals_cli(animals_array)
-    puts "Welcome to 080320 Pet Shop"
-    puts "What would you like to do?"
-    puts "Press 1 for a list of all pet names"
-    puts "Press 2 for a list of all cats"
-    puts "Press 3 to find an animal by name"
-    user_input = gets.chomp # removes whitespace and newline characters
+
+def animals_cli(animals_array)  
+    puts "Welcome to the Pet Adoption CLI"
+    puts "Choose an option by number"
+    puts "1. See all pets"
+    puts "2. See all cats"
+    puts "3. Find a pet by name"
+    user_input = gets.chomp
     if user_input == "1"
-        animals_array.map do |animal|
+        animals_array.collect do |animal|
             animal[:name]
         end
     elsif user_input == "2"
-        animals_array.filter do |animal|
-            animal[:species] == "cat"
-        end
+        animals_array.filter { |animal| animal[:species] == 'cat' }
     elsif user_input == "3"
-        puts "Which animal are you looking for?"
+        puts "What is the animals name?"
         animal_name = gets.chomp
-        animals_array.find do |animal|
-            animal[:name] == animal_name
-        end
-    end 
+        animals_array.find { |animal| animal[:name] == animal_name } 
+    end
 end
-
-
-
-
-
 
 
 def run 
@@ -60,24 +43,23 @@ def run
     puts "What is your social security number?"
     ssn = gets.chomp 
     user = User.new(name, age, ssn)
-    # binding.pry
 
-    puts "Do you want view your profile? (y/n)"
+    puts "What would you like to do?"
+    puts "1. View Profile"
+    puts "2. Edit SSN"
     choice = gets.chomp
-    if choice == "y"
-        puts "Your name is #{user.name}"
-        puts "Your age is #{user.age}"
-        # puts "Your ssn is #{user.ssn}"
-    elsif choice == "n"
-        puts "Do you want to change anything in your profile? (y/n)"
-        change = gets.chomp
-        if change == "y"
-            puts "What would you like to change?"
-            user_input = gets.chomp
-        end
+
+    if choice == "1"
+        user.view_profile
+    elsif choice == "2"
+        puts "What is your new SSN?"
+        new_ssn = gets.chomp.to_i
+        user.ssn = new_ssn
     end
 
+    binding.pry 
 end
+
 
 
 binding.pry 
