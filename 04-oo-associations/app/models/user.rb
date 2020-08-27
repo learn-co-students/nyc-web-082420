@@ -33,7 +33,8 @@ class User
         # if the pet belongs to this owner
         # if self.pets.find(pet_instance)
         # if self.pets.include?(pet_instance)
-        # TODO ==> CHECK THAT ARGUMENT IS A PET 
+        # Want to CHECK THAT ARGUMENT IS A PET?
+        #  pet_instance.instance_of? Animal
         if pet_instance.owner == self
             pet_instance.intelligence += 5
             puts "You just trained #{pet_instance.name}! They're real tired now!"
