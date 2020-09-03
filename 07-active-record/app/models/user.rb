@@ -1,9 +1,4 @@
 class User < ActiveRecord::Base
-    ## NO MORE
-    ## ATTRS
-    ## ANY OF OF THE CUSTOM READERS / WRITERS IF AR'S WORK FOR YOU 
-    ## INITIALIZE
-    ## @@ALL & RELATED, @@ALL << SELF, DEF SELF.ALL 
 
     def user_animals
         UserAnimal.all.filter { |ua| ua.user == self }
@@ -12,10 +7,6 @@ class User < ActiveRecord::Base
     def pets
         self.user_animals.map { |ua| ua.animal }
     end
-
-    # if i want name just to be readable 
-    # def name=()
-    # end
 
     def introduce 
         puts "Hi, my name is #{self.name}"
@@ -35,3 +26,9 @@ class User < ActiveRecord::Base
     # end
 
 end
+
+    ## NO MORE
+    ## ATTRS
+    ## ANY OF OF THE CUSTOM READERS / WRITERS IF AR'S WORK FOR YOU 
+    ## INITIALIZE
+    ## @@ALL & RELATED, @@ALL << SELF, DEF SELF.ALL 
