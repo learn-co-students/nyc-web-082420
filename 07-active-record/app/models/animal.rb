@@ -1,19 +1,7 @@
-class Animal
-    attr_accessor :name, :noise
-    attr_reader :species 
-    @@all = []
-
-    def initialize(species, name, noise) 
-        @species = species
-        @name = name
-        @noise = noise
-        @@all << self
-    end
-
-    def self.all 
-        @@all
-    end
-
+class Animal < ActiveRecord::Base
+    has_many :user_animals
+    has_many :users, through: :user_animals
+    
     def user_animals
         UserAnimal.all.select { |ua| ua.animal == self }
     end

@@ -1,31 +1,38 @@
 # this file serves as my playground / testing area 
-require 'pry'
-require_relative './app/models/user.rb'
-require_relative './app/models/animal.rb'
-require_relative './app/models/user_animal.rb'
 
 
-johnnie = User.new("Johnnie", 22, 1234)
-ashab = User.new("ashab", 22, 1234)
-madeline = User.new("madeline", 22, 1234)
-chloe = User.new("chloe", 22, 1234)
-
-grady = Animal.new('cat', 'grady', 'purrrrr') 
-mojo = Animal.new('cat', 'mojo', 'bark') 
-jerry = Animal.new('cat', 'jerry', 'sneeze') 
-appa = Animal.new('dog', 'appa', 'meow meow') 
-
-UserAnimal.new(johnnie, grady)
-UserAnimal.new(johnnie, jerry)
-UserAnimal.new(chloe, mojo)
-UserAnimal.new(ashab, appa)
-UserAnimal.new(madeline, grady)
-UserAnimal.new(chloe, grady)
+### ONCE WE START USING PERSISTENCE
+## USE SEEDS.RB AND RAKE CONSOLE
+## NO MORE NEED TO MAKE TEMPORARY INSTANCES HERE!!!
 
 
+# require 'pry'
+# require_relative './app/models/user.rb'
+# require_relative './app/models/animal.rb'
+# require_relative './app/models/user_animal.rb'
 
 
-binding.pry
+# johnnie = User.new("Johnnie", 22, 1234)
+# ashab = User.new("ashab", 22, 1234)
+# madeline = User.new("madeline", 22, 1234)
+# chloe = User.new("chloe", 22, 1234)
+
+# grady = Animal.new('cat', 'grady', 'purrrrr') 
+# mojo = Animal.new('cat', 'mojo', 'bark') 
+# jerry = Animal.new('cat', 'jerry', 'sneeze') 
+# appa = Animal.new('dog', 'appa', 'meow meow') 
+
+# UserAnimal.new(johnnie, grady)
+# UserAnimal.new(johnnie, jerry)
+# UserAnimal.new(chloe, mojo)
+# UserAnimal.new(ashab, appa)
+# UserAnimal.new(madeline, grady)
+# UserAnimal.new(chloe, grady)
+
+
+
+
+# binding.pry
 
 # animals = [
 #     {species: 'cat', name: 'nimr', noise: 'yowl'}, #Mahdi
