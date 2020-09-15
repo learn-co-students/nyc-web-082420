@@ -1,0 +1,9 @@
+<h1>Candles#index</h1>
+<p>Find me in app/views/candles/index.html.erb</p>
+
+
+
+<% @candles.each do |candle| %>
+  <p><%= link_to candle.name, candle_path(candle) %></p>
+  <p><%# link_to candle.name, candle %></p>
+<% end %>
