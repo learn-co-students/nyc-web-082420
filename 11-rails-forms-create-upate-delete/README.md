@@ -1,5 +1,6 @@
 # Rails Forms/CRUD
 ===
+before_action
 
 ## SWBATs
 - Params:
@@ -10,6 +11,7 @@
   - Use ActionView helpers like `form_for`, `button_to`
 - Controller 
   - Render vs Redirect
+  
 - Routes:
   - use route helpers to write paths
   - consolidate paths using resources 

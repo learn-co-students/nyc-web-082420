@@ -7,3 +7,6 @@
 
 
 <img src="<%= @candle.img_url %>" alt="<%= @candle.name%>">
+
+
+<%= button_to "DELETE", candle_path(@candle), method: :delete %>
