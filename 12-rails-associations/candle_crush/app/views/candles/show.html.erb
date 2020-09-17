@@ -1,0 +1,19 @@
+<h1>Candle Show Page</h1>
+
+
+<h3><%= @candle.name %></h3>
+<p>Scent: <%= @candle.scent %></p>
+<p>Price: $<%= @candle.price %></p>
+
+<marquee behavior="" direction="">
+  <img src="<%= @candle.img_url %>" alt="<%= @candle.name%>">
+</marquee>
+
+<h3>Dogs who have Favorited</h3>
+
+<% @candle.dog_users.each do |dog_user| %>
+  <p><%= dog_user.name %></p>
+<% end %>
+
+
+<%= button_to "DELETE", candle_path(@candle), method: :delete %>

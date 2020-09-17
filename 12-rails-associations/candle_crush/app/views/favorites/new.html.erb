@@ -1,0 +1,11 @@
+<h1>Create Favorite</h1>
+
+<%= form_for @favorite do |f| %>
+  <%= f.label :dog_user_id %>
+  <%= f.collection_select :dog_user_id, DogUser.all, :id, :name %>
+
+  <%= f.label :candle_id %>
+  <%= f.collection_select :candle_id, Candle.all, :id, :scent  %>
+
+  <%= f.submit %>
+<% end %>

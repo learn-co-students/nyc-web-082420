@@ -1,0 +1,13 @@
+<%= form_for @candle do |f| %>
+  <%= f.label :name  %>
+  <%= f.text_field :name  %>
+  <br>
+  <%= f.label :price %>
+  <%= f.number_field :price %>
+  <br>
+  <%= f.label :scent %>
+  <%= f.text_field :scent %>
+  <br>
+  <%= f.submit %>
+
+<% end %>
