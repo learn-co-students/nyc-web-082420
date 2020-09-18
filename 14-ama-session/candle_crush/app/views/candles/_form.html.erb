@@ -1,0 +1,30 @@
+<% if flash[:my_errors] %>
+  <% flash[:my_errors].each do |error| %>
+    <p style="color:red;"><%= error %></p>
+  <% end %>
+<% end %>
+
+<%= form_for @candle do |f| %>
+  <%= f.label :name  %>
+  <%= f.text_field :name  %>
+  <br>
+  <%= f.label :price %>
+  <%= f.number_field :price %>
+  <br>
+  <%= f.label :scent %>
+  <%= f.text_field :scent %>
+  <br>
+  <%= f.submit %>
+<% end %>
+
+<hr>
+
+<%= form_tag "/candles" do  %>
+  <%= text_field_tag :"nested_key[anything]" %>
+  <%= text_field_tag :"nested_key[anything_else]" %>
+
+  <%= text_field_tag :"hash2[something]" %>
+  <%= text_field_tag :"hash2[something_else]" %>
+  <%= submit_tag  %>
+
+<% end %>
