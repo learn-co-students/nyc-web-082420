@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :bloggers, only: [:index, :show]
 
   patch "/posts/like/:id", to: 'posts#like'
+  patch "/session/reset_views", to: 'sessions#reset_views'
 end

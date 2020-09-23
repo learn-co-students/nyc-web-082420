@@ -7,6 +7,10 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    if session[:views] == nil
+      session[:views] = 0
+    end
+    session[:views] = session[:views].to_i + 1
   end
 
   def new
