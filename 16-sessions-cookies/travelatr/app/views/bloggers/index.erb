@@ -1,0 +1,9 @@
+<h1 id="title">Bloggers</h1>
+<hr>
+<br>
+<ul>
+<% @bloggers.each do |blogger| %>
+    <li><%= link_to blogger.name, "/bloggers/#{blogger.id}" %> | <%= blogger.post_count %> blogs</li>
+    <br>
+<% end %>
+</ul>

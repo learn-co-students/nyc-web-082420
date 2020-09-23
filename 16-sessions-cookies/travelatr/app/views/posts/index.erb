@@ -1,0 +1,13 @@
+<h1 id="title">Read our posts</h1>
+<hr>
+<br>
+<ul>
+<% @posts.each do |post| %>
+    <div>
+        <h3><%= link_to post.title, "/posts/#{post.id}" %></h3>
+        <p><%= post.content[2...100] %>...</p>
+        <p><%= post.created_at %>...</p>
+        <hr id="line">
+    </div>
+<% end %>
+</ul>

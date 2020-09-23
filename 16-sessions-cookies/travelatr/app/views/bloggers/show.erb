@@ -1,0 +1,12 @@
+<h1><%= @blogger.name%></h1>
+<hr>
+<br>
+<b><%= link_to "Featured Post", "/posts/#{@blogger.featured_post.id}" %></b> | <b>Total Amounted Likes: <%= @blogger.total_likes %></b>
+<hr>
+<br>
+<h4>All my posts: </h4> 
+<% @blogger.posts.map do |post|%>
+<%= post.id %> |
+<%= link_to post.title, "/posts/#{post.id}" %>
+<br>
+<% end %>

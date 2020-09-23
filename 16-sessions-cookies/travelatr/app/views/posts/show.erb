@@ -1,0 +1,5 @@
+<h1><%= @post.title %></h1>
+<h4>Written by<%= link_to @post.blogger.name, "/bloggers/#{@post.blogger.id}" %></h4>
+<hr>
+<p><%= @post.content %></p>
+<p><%= @post.likes %><%= link_to "👍", "/posts/like/#{@post.id}", method: 'patch' %></p>
