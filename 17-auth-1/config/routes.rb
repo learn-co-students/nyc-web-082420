@@ -8,6 +8,16 @@ Rails.application.routes.draw do
   # resources :candles, except: [:destroy] 
   resources :candles
 
+  # First route GETS the form for the user
+  # Second route POSTS the information in the form to our server
+
+  # HTTPVERB "URL", to: "CONTROLLER_NAME#METHOD_NAME"
+  get "/login", to: "dog_users#login", as: "login"
+  post "/login", to: "dog_users#handle_login"
+
+
+
+
   # get '/candles', to: "candles#index", as: "candles"
   # get '/candles/new', to: "candles#new", as: "new_candle"
   # get '/candles/:id', to: "candles#show", as: "candle"

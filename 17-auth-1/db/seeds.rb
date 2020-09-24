@@ -19,7 +19,7 @@ end
 
 
 20.times do 
-  DogUser.create(name: Faker::Books::Dune.character, age: rand(1..20), breed: Faker::Creature::Dog.breed)
+  DogUser.create(name: Faker::Books::Dune.character, age: rand(1..20), breed: Faker::Creature::Dog.breed, password: "abc123")
 end 
 
 
