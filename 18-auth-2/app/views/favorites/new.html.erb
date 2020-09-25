@@ -1,0 +1,14 @@
+<h1>Create Favorite</h1>
+
+<% if flash[:my_errors] %>
+  <% flash[:my_errors].each do |error| %>
+    <p><%= error %></p>
+  <% end %>
+<% end %>
+
+<%= form_for @favorite do |f| %>
+  <%= f.label :candle_id %>
+  <%= f.collection_select :candle_id, Candle.all, :id, :scent  %>
+
+  <%= f.submit %>
+<% end %>

@@ -1,0 +1,9 @@
+<h1> <%= @current_user.name %>'s Favorites </h1>
+
+<ol>
+    <% @favorites.each do |fav| %>
+        <li>
+            <%= fav.candle.scent %>
+        </li>
+    <% end %>
+</ol>

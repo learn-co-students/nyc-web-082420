@@ -1,0 +1,18 @@
+<h1>Candles#index</h1>
+
+
+
+<div class="index-container">
+  <% @candles.each do |candle| %>
+    <div class="index-card">
+      <h3><%= link_to candle.name, candle_path(candle) %></h3>
+      <img src="<%= candle.img_url %>" alt="<%candle.name%>" class="index-img">
+      <p><%# link_to candle.name, candle %></p>
+    </div>
+  <% end %>
+</div>
+
+
+<% if logged_in? %>
+    <%= link_to "Create a new candle", new_candle_path %>
+<% end %>
