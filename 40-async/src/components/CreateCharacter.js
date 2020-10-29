@@ -11,8 +11,6 @@ class CreateCharacters extends React.Component {
         this.setState({ [e.target.name]: e.target.value })
     }
 
-    // thunk => delay execution of a function
-
     localSubmitHandler = (e) => {
         e.preventDefault()
         this.props.submitHandler(this.state)
