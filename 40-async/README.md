@@ -18,6 +18,7 @@
 - Where do we fetch
 
 ### Update
+
 1. Click on Character Name
 2. Re-render with a form
 3. on submit, change API
