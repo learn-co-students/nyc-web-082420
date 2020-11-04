@@ -1,4 +1,5 @@
 import React from 'react'
+import { Route, Switch } from 'react-router-dom'
 import Character from '../components/Character'
 import CreateCharacters from '../components/CreateCharacter'
 
@@ -8,9 +9,8 @@ class Characters extends React.Component {
         api: []
     }
 
-    // Angular/Vue
     componentDidMount() {
-        fetch('https://localhost:5000/api')
+        fetch('http://localhost:5000/api')
             .then(resp => resp.json())
             .then(api => this.setState({ api }))
             .catch(console.log)
@@ -23,7 +23,6 @@ class Characters extends React.Component {
     submitHandler = (newCharacter) => {
         // this.setState((prevState) => ({ api: [newCharacter, ...prevState.api] }))
 
-        // optimistic vs pessimistic
         fetch('http://localhost:5000/api', {
             method: "POST",
             headers: {
@@ -57,13 +56,43 @@ class Characters extends React.Component {
     }
 
     render() {
+        // 1. when to render every character => index
+        // when path = "/characters"
+        // 2. when to render a single character => show 
+        // when path = "/characters"
         return (
             <div className="container index">
                 <h2>All Characters</h2>
                 <CreateCharacters submitHandler={this.submitHandler} />
-                <div>
-                    {this.state.api.length > 0 ? this.renderCharacters() : <h1>LOADING</h1>}
-                </div>
+
+                <Switch>
+                    <Route path="/characters/:id" render={(routerProps) => {
+                        let id = parseInt(routerProps.match.params.id)
+                        let character
+                        if (this.state.api.length > 0) {
+                            character = this.state.api.find(el => el.id === id)
+                        }
+                        return (
+                            <>
+                                {
+                                    this.state.api.length > 0 ? <Character character={character} clickHandler={this.props.clickHandler} updateHandler={this.updateSubmitHandler} />
+                                        :
+                                        <h1>Loading</h1>
+                                }
+                            </>
+                        )
+                    }} />
+                    <Route path="/characters" render={() => {
+                        return (
+                            <div>
+                                {this.state.api.length > 0 ? this.renderCharacters() : <h1>LOADING</h1>}
+                            </div>
+                        )
+                    }} />
+
+                </Switch>
+
+
             </div>
         )
     }
