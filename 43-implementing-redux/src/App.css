@@ -1,0 +1,48 @@
+body{
+  height: 100vh;
+  width: 100vw;
+}
+
+.App{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+
+.container{
+  display: flex; 
+  flex-direction: column;
+  width: 100%;
+}
+
+
+.container > div{
+  display: flex; 
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  overflow: scroll;
+  height: 80%;
+  width: 100%;
+}
+
+.index{
+  height: 100%;
+}
+.team{
+  height: 40vh;
+}
+.team > div{
+  max-height: 100%
+}
+
+.image{
+  width: 30%;
+  max-height: 40%;
+}
+
+img{
+  max-height: 60%;
+  max-width: 45%;
+}
